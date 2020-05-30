@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Speech To Text Convertor</title>
+</head>
+<body>
+    <h1 align="center"><b>Speech To Text Convertor</b></h1>
+    <h1 align="center"><input type="text" name="" id="speechToText" placeholder="Click Here To Speak" onclick="record()"></h1>
+    <script>
+        function record() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = "en-GB";
+
+            recognition.onresult = function(event) {
+                document.getElementById('speechToText').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+        }
+    </script>
+</body>
+</html>
